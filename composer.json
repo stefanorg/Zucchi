@@ -1,12 +1,12 @@
 {
-    "name": "zucchi/zucchi",
+    "name": "stefanorg/zucchi",
     "description": "Zucchi Component Library for Zend Framework 2",
     "type": "library",
     "keywords": [
         "library",
         "zf2"
     ],
-    "homepage": "https://github.com/zucchi/Zucchi",
+    "homepage": "https://github.com/stefanorg/Zucchi",
     "authors" : [{
         "name": "Matt Cockayne",
         "email" : "matt@zucchi.co.uk",
