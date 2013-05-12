@@ -21,6 +21,7 @@ use Zucchi\ServiceManager\ServiceManagerAwareTrait;
 use Zend\Form\Factory as ZendFactory;
 use Zend\Form\FieldsetInterface;
 use Zend\Form\ElementInterface;
+use Zend\Form\Exception;
 
 /**
  * @category   Zend
