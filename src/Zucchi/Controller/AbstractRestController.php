@@ -111,8 +111,8 @@ abstract class AbstractRestController extends AbstractRestfulController
         }
         
         $messenger = $this->messenger()->addMessages($this->flashMessenger()->getMessages());
-        $this->layout()->setVariable('messages', $messenger);
-        
+        //$this->layout()->setVariable('messages', $messenger);
+        $view->setVariable('messages', $messenger);
         return $view;
     }
 }
