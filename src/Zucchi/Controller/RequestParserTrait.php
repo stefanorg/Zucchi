@@ -28,7 +28,7 @@ trait RequestParserTrait
             'lte'   => '<=',
             'neq'   => '!=',
             'between' => 'between',
-            'fuzzy' => 'like',
+            'like' => 'like',
             'regex' => 'regexp',
         );
 
