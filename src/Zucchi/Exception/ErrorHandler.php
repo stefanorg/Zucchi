@@ -55,8 +55,6 @@ class ErrorHandler
         $emailBody = 'Error Report' . PHP_EOL
             . 'Exception Type: ' . get_class($e) . PHP_EOL;
 
-
-
         if ($e instanceof \ErrorException) {
             switch($e->getCode()) {
                 case E_USER_ERROR:
@@ -92,9 +90,16 @@ class ErrorHandler
 
         $emailBody .= 'Line: ' . $e->getLine() . PHP_EOL
             . 'File: ' . $e->getFile() . PHP_EOL
-            . 'Message: '. $e->getMessage() . PHP_EOL
-            . PHP_EOL
+            . 'Message: '. $e->getMessage() . PHP_EOL . PHP_EOL
             . 'Trace: ' . $e->getTraceAsString();
+
+        while ($e = $e->getPrevious()) {
+            $emailBody .= PHP_EOL . PHP_EOL. 'Previous Exception: ' . PHP_EOL;
+            $emailBody .= 'Line: ' . $e->getLine() . PHP_EOL
+                . 'File: ' . $e->getFile() . PHP_EOL
+                . 'Message: '. $e->getMessage() . PHP_EOL . PHP_EOL
+                . 'Trace: ' . $e->getTraceAsString();
+        }
 
         $mail = new Mail\Message();
         $mail->setBody($emailBody);
@@ -103,6 +108,5 @@ class ErrorHandler
 
         $transport = new Mail\Transport\Sendmail();
         $transport->send($mail);
-
     }
 }
